@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgba(0, 217, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.container{
+    margin-top: 10%;
+}
+
+:root{
+    --btn-color: transparent;
+    --btn-border: 2px
+}
+
+.btn{
+    padding: 10px 30px;
+    margin: 25px;
+    position: relative;
+    display: block;
+    border: none;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn.border-btn::before{
+    content: '';
+    border: var(--btn-border) solid #ff0000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 300ms ease-in-out ;
+}
+
+.btn.border-btn:hover::before,
+.btn.border-btn:focus::before{
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+}
+
+.btn.background-btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    z-index: -1;
+    transform: scalex(0);
+    transform-origin: left;
+    transition: transform, 300ms ease-in-out;
+}
+
+.btn.background-btn{
+    z-index: 1;
+}
+
+
+.btn.background-btn:hover::before,
+.btn.background-btn:focus::before{
+    transform: scalex(1);
+}
+
+.btn.circle-btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    z-index: -1;
+    border-radius:50% ;
+    transform: scale(0);
+    transition: transform, 300ms ease-in-out;
+}
+
+.btn.circle-btn{
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn.circle-btn:hover::before,
+.btn.circle-btn:focus::before{
+    transform: scale(1.5);
+}
+
+.btn.down-btn::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: var(--btn-border) solid red;
+    transform: scale(0);
+    transition: transform, 300ms ease-in-out;
+}
+
+.btn.down-btn:hover::before,
+.btn.down-btn:focus::before{
+    transform: scale(1);
+}
+
